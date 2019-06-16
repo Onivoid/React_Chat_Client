@@ -1,6 +1,7 @@
 import io from 'socket.io-client';
 
-const port = process.env.PORT || 3001;
-const socket = io.connect(`http://localhost:${port}/`);
+let socket;
+
+return (process.env.NODE_ENV === 'dev') ? socket = io.connect(`http://localhost:3001/`) : socket = io.connect(`https://chat-react-socketio.herokuapp.com`);
 
 export default socket
