@@ -13,7 +13,13 @@ function Chat(props) {
         socket.on('newMessage', (msg) => {
             setListMessage(listMessage => [...listMessage, msg])
             messageFocus.current.scrollTop = messageFocus.current.scrollHeight;
-        })
+        });
+    }, [])
+
+    useEffect(() => {
+        socket.on('newUser', () => {
+            toaster.warning('Nouvel utilisateur connecté !')
+        });
     }, [])
 
     const socket = props.socket;

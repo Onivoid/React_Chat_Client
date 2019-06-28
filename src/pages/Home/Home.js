@@ -8,11 +8,13 @@ function Home(props){
 
     const [isAuth, setIsAuth] = useState(false);
 
+    const socket = props.socket;
+
     function checkUsername(event){
         event.preventDefault()
         return username === '' || username === undefined
             ? toaster.danger("Le champ 'Pseudo' est vide.")
-            : (toaster.closeAll(),setIsAuth(true))
+            : (toaster.closeAll(),setIsAuth(true),socket.emit('newUser'))
     }
 
     return isAuth 
