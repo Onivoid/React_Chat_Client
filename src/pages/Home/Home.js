@@ -23,12 +23,12 @@ function Home(props){
         : 
             (
                 <div className="Home">
-                    <div>
-                        <h1>FoxStudio - React & Socket.io chat</h1>
+                    <div className="titleContainer">
+                        <h1 className="title">FoxStudio - React & Socket.io chat</h1>
                     </div>
-                    <form onSubmit={checkUsername}>
-                        <TextInput placeholder='Votre Pseudo' onChange={ (e) => setUsername(e.target.value) } />
-                        <Button onSubmit={checkUsername} marginLeft={10} iconAfter="arrow-right">Entrer dans le chat</Button>
+                    <form onSubmit={checkUsername} className="form">
+                        <TextInput placeholder='Votre Pseudo' onChange={ (e) => setUsername(e.target.value) } className="nameInput"/>
+                        <Button onSubmit={checkUsername} iconAfter="arrow-right" className="enterButton">Entrer dans le chat</Button>
                     </form>
                 </div>
             ) 
